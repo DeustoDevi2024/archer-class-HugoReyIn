@@ -22,9 +22,9 @@ namespace Archer
 
         private IGameStateProvider gameStateProvider;//new PlayerPrefsGameStateProvider();
 
-        public Arrow arrowPrefab; 
-        public Transform transform;
-        public float force = 10f;
+        private Arrow arrowPrefab; 
+        private Transform transform;
+        private float force = 10f;
 
         private void Awake()
         {
@@ -59,7 +59,7 @@ namespace Archer
             SceneManager.LoadScene("Game");
         }
 
-        private void Update()
+        public void Update()
         {
             if (Input.GetMouseButtonDown(0))
             {
