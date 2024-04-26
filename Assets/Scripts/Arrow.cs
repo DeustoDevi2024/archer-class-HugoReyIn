@@ -13,7 +13,14 @@ namespace Archer
         {
             // Establecer las referencias de Rigidbody (para detener la flecha) y AudioSource (para el sonido de impacto)
             arrowRigidbody = GetComponent<Rigidbody>();
+            arrowRigidbody.isKinematic = true;
            
+        }
+
+        public void Launch(Vector3 direction, float force)
+        {
+            arrowRigidbody.isKinematic = false;
+            arrowRigidbody.AddForce(direction * force, ForceMode.Impulse);
         }
 
         // El rigidbody de la flecha es tipo Trigger, para que no colisione

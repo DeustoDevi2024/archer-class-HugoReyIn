@@ -22,6 +22,10 @@ namespace Archer
 
         private IGameStateProvider gameStateProvider;//new PlayerPrefsGameStateProvider();
 
+        public Arrow arrowPrefab; 
+        public Transform transform;
+        public float force = 10f;
+
         private void Awake()
         {
             if (Instance != null)
@@ -53,6 +57,15 @@ namespace Archer
         public void LoadGame()
         {
             SceneManager.LoadScene("Game");
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Arrow arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
+                arrow.Launch(transform.forward, force);
+            }
         }
 
     }
