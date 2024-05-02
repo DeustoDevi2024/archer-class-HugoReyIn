@@ -66,6 +66,19 @@ namespace Archer
                 Arrow arrow = Instantiate(arrowPrefab, transform.position, transform.rotation);
                 arrow.Launch(transform.forward, force);
             }
+
+            if (transform.position.y < -10f)
+            {
+                RestartGame();
+                return;
+            }
+
+            
+        }
+
+        private void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
     }
